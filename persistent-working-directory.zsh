@@ -3,12 +3,12 @@
 # ================================================
 WORKING_DIRECTORY_FILE=$HOME/.zsh-wd
 
-function lw()
+function wl()
 {
   test -e $WORKING_DIRECTORY_FILE && cat $WORKING_DIRECTORY_FILE | sort
 }
 
-function sw()
+function ws()
 {
   _target=$1
 
@@ -34,7 +34,7 @@ function sw()
   lw
 }
 
-function gw()
+function wd()
 {
   _target=$1
 
@@ -44,13 +44,13 @@ function gw()
   fi
 
   if [[ -e $WORKING_DIRECTORY_FILE ]] ; then
-    clear
+    # clear
     cd `cat $WORKING_DIRECTORY_FILE | grep -E "^$_target:" | sed "s/^$_target://"`
   fi
 }
 
 # Clear working directory file
-function cw()
+function wc()
 {
   rm $WORKING_DIRECTORY_FILE
 }
